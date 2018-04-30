@@ -16,10 +16,6 @@ def selects_the_titles_of_all_projects_and_their_pledge_amounts_alphabetized_by_
   GROUP BY project_id
   ORDER BY title"
   end
-# SELECT aisle, SUM(quantity) FROM groceries GROUP BY aisle ORDER BY SUM(quantity);
-  # CREATE TABLE projects (id, title, category, funding_goal, start_date, end_date);
-  # CREATE TABLE users (id, name, age);
-  # CREATE TABLE pledges (id, amount, user_id, project_id);
 
 def selects_the_user_name_age_and_pledge_amount_for_all_pledges_alphabetized_by_name
   "SELECT name, age, SUM(pledges.amount) FROM users
@@ -35,9 +31,17 @@ def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_
   HAVING SUM(pledges.amount) >= projects.funding_goal"
 end
 
-
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount_and_users_name
+  "SELECT name, SUM(pledges.amount) FROM pledges
+  JOIN users ON users.users_id = user.id
+  GROUP BY name 
+  ORDER BY name, SUM(pledges.amount)"
+
 end
+# SELECT aisle, SUM(quantity) FROM groceries GROUP BY aisle ORDER BY SUM(quantity);
+  # CREATE TABLE projects (id, title, category, funding_goal, start_date, end_date);
+  # CREATE TABLE users (id, name, age);
+  # CREATE TABLE pledges (id, amount, user_id, project_id);
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
 end
