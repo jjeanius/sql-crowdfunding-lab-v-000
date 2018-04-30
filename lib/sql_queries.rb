@@ -43,9 +43,15 @@ def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_ca
   JOIN pledges ON pledges.project_id = projects.id
   WHERE category ='music'"
 end
+
+def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category
+  "SELECT category, SUM(pledges.amount) FROM category
+  JOIN pledges ON pledges.project_id = projects.id
+  WHERE category ='books'"
+  
+end
 # SELECT aisle, SUM(quantity) FROM groceries GROUP BY aisle ORDER BY SUM(quantity);
   # CREATE TABLE projects (id, title, category, funding_goal, start_date, end_date);
   # CREATE TABLE users (id, name, age);
   # CREATE TABLE pledges (id, amount, user_id, project_id);
-def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category
-end
+
