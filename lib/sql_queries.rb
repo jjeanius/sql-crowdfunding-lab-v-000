@@ -12,7 +12,7 @@ end
 
 def selects_the_titles_of_all_projects_and_their_pledge_amounts_alphabetized_by_name
   "SELECT title, SUM(pledges.amount) FROM projects
-  JOIN pledges ON pledges.project_id = project.id
+  JOIN pledges ON pledges.project_id = projects.id
   ORDER BY title;"
   end
 # SELECT aisle, SUM(quantity) FROM groceries GROUP BY aisle ORDER BY SUM(quantity);
