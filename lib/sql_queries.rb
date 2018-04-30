@@ -23,12 +23,17 @@ def selects_the_titles_of_all_projects_and_their_pledge_amounts_alphabetized_by_
 
 def selects_the_user_name_age_and_pledge_amount_for_all_pledges_alphabetized_by_name
   "SELECT name, age, SUM(pledges.amount) FROM users
-  JOIN pledges ON  pledges.user_id = users.id
+  JOIN pledges ON pledges.user_id = users.id
   GROUP BY user_id
   ORDER BY name"
 end
 
 def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_funding_goal
+  "SELECT title, SUM(pledges.amount) funding_goal FROM projects
+  JOIN pledges ON pledges.user_id = users.id
+  GROUP BY user_id'
+
+
 end
 
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount_and_users_name
